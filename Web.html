@@ -40,14 +40,14 @@
 
     for (const [method, button] of Object.entries(buttons)) {
       button.addEventListener('click', () => {
-        let message = `${method} berhasil dipilih!`;
+        let message = `${method} silahkan bayar`;
 
         if (method === "Gopay") {
           message += " No Gopay: 12345";
         } else if (method === "Ovo") {
           message += " No Ovo: 67890";
         } else {
-          message += " Penggunaan Dana mudah dan cepat.";
+          message += " silahkan chat wa penjual.";
         }
 
         textResponse.textContent = message;
