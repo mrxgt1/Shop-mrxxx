@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Danggan Sederhana</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-yellow-300 via-red-400 to-pink-500 min-h-screen flex items-center justify-center p-6">
+  <div class="bg-white bg-opacity-90 rounded-3xl shadow-xl max-w-xl w-full p-8 flex flex-col items-center">
+    <h1 class="text-4xl font-extrabold text-rose-600 mb-6 font-sans">Web Danggan</h1>
+    <p class="text-gray-700 text-center text-lg mb-6 px-4 leading-relaxed font-serif">Pilihan produk yang menarik dengan metode pembayaran yang mudah!</p>
+
+    <img 
+      src="https://a.top4top.io/p_3475tf1s71.jpg"
+      alt="Ilustrasi danggan modern berwarna hangat dengan latar belakang gradasi dan pola abstrak yang elegan"
+      class="rounded-lg shadow-md w-full max-w-md mb-8"
+      onerror="this.style.display='none';"
+    />
+
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Pilih Produk:</h2>
+    <div class="flex flex-col space-y-4 w-full">
+      <button id="btnDana" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold py-3 px-8 rounded-full transition">Dana</button>
+      <button id="btnGopay" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full transition">Gopay</button>
+      <button id="btnOvo" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition">Ovo</button>
+      <!-- Hapus LinkAja dan Kartu Kredit -->
+    </div>
+
+    <p id="textResponse" class="mt-6 text-gray-800 font-medium text-center"></p>
+  </div>
+
+  <script>
+    const buttons = {
+      Dana: document.getElementById('btnDana'),
+      Gopay: document.getElementById('btnGopay'),
+      Ovo: document.getElementById('btnOvo'),
+    };
+    
+    const textResponse = document.getElementById('textResponse');
+
+    for (const [method, button] of Object.entries(buttons)) {
+      button.addEventListener('click', () => {
+        let message = `${method} berhasil dipilih!`;
+
+        if (method === "Gopay") {
+          message += " No Gopay: 12345";
+        } else if (method === "Ovo") {
+          message += " No Ovo: 67890";
+        } else {
+          message += " Penggunaan Dana mudah dan cepat.";
+        }
+
+        textResponse.textContent = message;
+      });
+    }
+  </script>
+</body>
+</html>
