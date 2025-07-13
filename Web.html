@@ -39,12 +39,12 @@
 
     for (const [method, button] of Object.entries(buttons)) {
       button.addEventListener('click', () => {
-        let message = `${method} 0888`;
+        let message = `${method} 08********`;
 
         if (method === "Gopay" || method === "Ovo") {
-          message += " silahkan chat wa penjual";
+          message += " ";
         } else {
-          message += " silahkan chat wa penjual.";
+          message += " ";
         }
 
         textResponse.textContent = message;
