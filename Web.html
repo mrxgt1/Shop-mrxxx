@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web Danggan Sederhana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Menambahkan beberapa gaya khusus */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .button {
+            background-color: #E63946; /* Warna latar belakang tombol */
+            color: black;              /* Warna teks tombol */
+            border-radius: 30px;      /* Bentuk sudut tombol */
+            padding: 10px 20px;       /* Jarak dalam tombol */
+            font-weight: bold;         /* Ketebalan teks tombol */
+            cursor: pointer;           /* Menunjukkan bahwa element dapat diklik */
+        }
+
+        .button:hover {
+            background-color: #D62839; /* Warna latar belakang saat hover */
+        }
+        
+        .item-details {
+            display: none; /* Sembunyikan detail item secara default */
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-r from-yellow-300 via-red-400 to-pink-500 min-h-screen flex items-center justify-center p-6">
+    <div class="bg-white bg-opacity-90 rounded-3xl shadow-xl max-w-xl w-full p-8 flex flex-col items-center">
+        <h1 class="text-4xl font-extrabold text-rose-600 mb-6 font-sans">Web Dangkan</h1>
+        <p class="text-gray-700 text-center text-lg mb-6 px-4 leading-relaxed font-serif">Jangan mudahkan tayang rahasia harus tetap 😡😡!!!</p>
+        
+        <img 
+          src="https://a.top4top.io/p_3475tf1s71.jpg" alt="Gambar yang relevan" />
+
+        <button id="dana" class="button"> Dana </button>
+        <button id="gopay" class="button"> Gopay </button>
+        <button id="ovo" class="button"> OVO </button>
+        <button id="sc bug aot" class="button"> sc bug aot </button>
+
+        <label for="nomorInput" class="mt-6 text-gray-800">Nomor:</label>
+        <input type="text" id="nomorInput" placeholder="Masukkan nomor" class="border rounded p-2 mt-2 mb-4 w-full max-w-xs">
+
+        <p id="textResponse" class="mt-6 text-gray-800 font-medium text-center"></p>
+        
+        <!-- Elemen untuk detail item barang -->
+        <div id="itemDetails" class="item-details">
+            <img id="itemImage" src="" alt="" />
+            <p id="itemPrice" class="text-gray-800 mt-4"></p>
+        </div>
+    </div>
+
+    <script>
+      const tombol = {
+          dana: document.getElementById('dana'),
+          gopay: document.getElementById('gopay'),
+          ovo: document.getElementById('ovo'),
+          barang: document.getElementById('sc bug aot')
+      };
+
+      const textResponse = document.getElementById('textResponse');
+      const nomorInput = document.getElementById('nomorInput');
+      const itemDetails = document.getElementById('itemDetails');
+      const itemImage = document.getElementById('itemImage');
+      const itemPrice = document.getElementById('itemPrice');
+
+      const kirimRespon = (layanan) => {
+          let number = nomorInput.value.trim();
+          let message = "";
+          
+          switch(layanan) {
+              case 'dana':
+                  message = `no dana: ${number}`;
+                  break;
+              case 'gopay':
+                  message = `no gopay: ${number}`;
+                  break;
+              case 'ovo':
+                  message = `no ovo: ${number}`;
+                  break;
+              case 'sc bug aot':
+                  message = `Barang yang dimasukkan: ${number}`;
+                  // Tampilkan detail barang
+                  itemImage.src = "https://a.top4top.io/p_3475tf1s71.jpg"; // Ganti dengan URL gambar barang
+                  itemPrice.textContent = "Harga barang: Rp 5.000"; // Ganti dengan harga barang yang sesuai
+                  itemDetails.style.display = "block"; // Tampilkan detail barang
+                  break;
+              default:
+                  message = "Layanan tidak valid.";
+          }
+          textResponse.textContent = message;
+      };
+
+      tombol.dana.addEventListener('click', () => kirimRespon('dana'));
+      tombol.gopay.addEventListener('click', () => kirimRespon('gopay'));
+      tombol.ovo.addEventListener('click', () => kirimRespon('ovo'));
+      tombol.barang.addEventListener('click', () => kirimRespon('sc bug aot'));
+    </script>
+</body>
+</html>
