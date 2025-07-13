@@ -18,7 +18,7 @@
       onerror="this.style.display='none';"
     />
 
-    <h2 class="text-2xl font-bold text-gray-800 mb-4">Pilih Paymen/pembayaran:</h2>
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Pilih Pembayaran:</h2>
     <div class="flex flex-col space-y-4 w-full">
       <button id="btnDana" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold py-3 px-8 rounded-full transition">Dana</button>
       <button id="btnGopay" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full transition">Gopay</button>
@@ -30,9 +30,9 @@
 
   <script>
     const buttons = {
-      : document.getElementById('btnDana'),
-      : document.getElementById('btnGopay'),
-      : document.getElementById('btnOvo'),
+      Dana: document.getElementById('btnDana'),
+      Gopay: document.getElementById('btnGopay'),
+      Ovo: document.getElementById('btnOvo'),
     };
     
     const textResponse = document.getElementById('textResponse');
@@ -41,15 +41,11 @@
       button.addEventListener('click', () => {
         let message = `${method} 08********`;
 
-        if (method === "Gopay" || method === "Ovo") {
-          message += " ";
-        } else {
-          message += " ";
-        }
+        message += method === "Gopay" || method === "Ovo" ? " pada aplikasi Anda." : " untuk transaksi.";
 
         textResponse.textContent = message;
 
-        // Copy the message to the clipboard
+        // Salin pesan ke clipboard
         navigator.clipboard.writeText(message).then(() => {
           alert(`${message} telah disalin ke clipboard!`);
         }).catch(err => {
