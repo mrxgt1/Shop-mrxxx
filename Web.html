@@ -23,7 +23,6 @@
       <button id="btnDana" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold py-3 px-8 rounded-full transition">Dana</button>
       <button id="btnGopay" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full transition">Gopay</button>
       <button id="btnOvo" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition">Ovo</button>
-      <!-- Hapus LinkAja dan Kartu Kredit -->
     </div>
 
     <p id="textResponse" class="mt-6 text-gray-800 font-medium text-center"></p>
@@ -42,15 +41,20 @@
       button.addEventListener('click', () => {
         let message = `${method} 0888`;
 
-        if (method === "Gopay") {
-          message += " silahkan chat wa penjual";
-        } else if (method === "Ovo") {
+        if (method === "Gopay" || method === "Ovo") {
           message += " silahkan chat wa penjual";
         } else {
           message += " silahkan chat wa penjual.";
         }
 
         textResponse.textContent = message;
+
+        // Copy the message to the clipboard
+        navigator.clipboard.writeText(message).then(() => {
+          alert(`${message} telah disalin ke clipboard!`);
+        }).catch(err => {
+          console.error('Gagal menyalin: ', err);
+        });
       });
     }
   </script>
